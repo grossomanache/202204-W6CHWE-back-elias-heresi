@@ -1,17 +1,16 @@
-const mockRobots = [
-  { id: 1, name: "Bender" },
-  { id: 2, name: "Terminator" },
-];
+const { Robot } = require("../../db/models/Robot");
 
-const getRobots = (req, res) => {
-  res.status(200).json(mockRobots);
+const getRobots = async (req, res) => {
+  const robots = await Robot.find();
+  res.status(200).json(robots);
 };
 
-const getRobotById = (req, res) => {
-  const idRobot = +req.params.idRobot;
-  const arrayOfThings = mockRobots;
-  const response = arrayOfThings.find((robot) => robot.id === idRobot);
-  res.status(200).json(response);
+const getRobotById = async (req, res) => {
+  const {
+    params: { idRobot },
+  } = req;
+  const robot = await Robot.findById(idRobot);
+  res.status(200).json(robot);
 };
 
 module.exports = { getRobots, getRobotById };
