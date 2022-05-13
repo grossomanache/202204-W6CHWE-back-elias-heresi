@@ -1,6 +1,6 @@
 require("dotenv").config();
 const chalk = require("chalk");
-const debug = require("debug")("robots:root:server");
+const debug = require("debug")("robots:root:server:initializeServer");
 const { app } = require(".");
 
 const initializeServer = (port) => {
