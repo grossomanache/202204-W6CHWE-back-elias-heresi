@@ -5,10 +5,11 @@
   "scripts": {
     "test": "jest",
     "start": "node index",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test-coverage": "npm run test -- --coverage --watchAll=false"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "node"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,8 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "husky": "^7.0.0",
     "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0"
+    "jest-environment-jsdom": "^28.1.0",
+    "mockingoose": "^2.15.2"
   },
   "dependencies": {
     "@types/jest": "^27.5.1",
