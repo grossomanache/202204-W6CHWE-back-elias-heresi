@@ -8,11 +8,6 @@ const RobotSchema = new Schema({
   url: { type: String },
 });
 
-const TestSchema = new Schema({
-  name: { type: String },
-});
-
 const Robot = model("Robot", RobotSchema, "robots");
-const Test = model("Test", TestSchema, "tests");
 
-module.exports = { Robot, Test };
+module.exports = { Robot };
