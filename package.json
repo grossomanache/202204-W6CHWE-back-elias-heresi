@@ -6,7 +6,7 @@
     "test": "jest",
     "start": "node index",
     "prepare": "husky install",
-    "test-coverage": "npm run test -- --coverage --watchAll=false"
+    "test-coverage": "jest --coverage --watchAll=false"
   },
   "jest": {
     "testEnvironment": "node"

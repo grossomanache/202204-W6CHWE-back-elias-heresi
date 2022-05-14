@@ -10,7 +10,7 @@ const databaseUrl = process.env.DATABASE_URL;
 (async () => {
   try {
     await connectToDatabase(databaseUrl);
-    await initializeServer(port || 4000);
+    initializeServer(port || 4000);
   } catch (error) {
     debug(chalk.red("Error in setup. Please retry"));
   }
