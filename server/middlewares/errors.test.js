@@ -1,4 +1,4 @@
-const { notFoundError } = require("./errors");
+const { notFoundError, fetchingError } = require("./errors");
 
 describe("Given the notFoundError function", () => {
   describe("When invoked with a response", () => {
