@@ -8,4 +8,10 @@ const notFoundError = (req, res) => {
   res.status(404).json(response);
 };
 
-module.exports = { notFoundError };
+const generalError = (err, req, res, next) => {
+  debug(chalk.red(err.message));
+  const response = { msg: "Error in request." };
+  res.status(500).json(response);
+};
+
+module.exports = { notFoundError, generalError };

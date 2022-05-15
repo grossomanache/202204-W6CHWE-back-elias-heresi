@@ -1,4 +1,4 @@
-const { notFoundError, fetchingError } = require("./errors");
+const { notFoundError, generalError } = require("./errors");
 
 describe("Given the notFoundError function", () => {
   describe("When invoked with a response", () => {
@@ -11,6 +11,25 @@ describe("Given the notFoundError function", () => {
       };
 
       await notFoundError(null, res);
+
+      expect(res.status).toHaveBeenCalledWith(expectedStatus);
+      expect(res.json).toHaveBeenCalledWith(mockedResponse);
+    });
+  });
+});
+
+describe("Given the generalError function", () => {
+  describe("When invoked with a response", () => {
+    test("The it should call the response's status with a 500 and a json with Error in request", async () => {
+      const expectedStatus = 500;
+      const mockedResponse = { msg: "Error in request." };
+      const res = {
+        json: jest.fn().mockReturnValue(mockedResponse),
+        status: jest.fn().mockReturnThis(),
+      };
+
+      const inputtedError = { msg: "Error in test" };
+      await generalError(inputtedError, null, res);
 
       expect(res.status).toHaveBeenCalledWith(expectedStatus);
       expect(res.json).toHaveBeenCalledWith(mockedResponse);

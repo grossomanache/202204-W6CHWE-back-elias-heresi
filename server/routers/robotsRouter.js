@@ -1,10 +1,13 @@
 const express = require("express");
-const { getRobots, getRobotById } = require("../controllers/robotsController");
-const { notFoundError } = require("../middlewares/errors");
+const {
+  getRobots,
+  getRobotById,
+  addRobot,
+} = require("../controllers/robotsController");
 
 const robotsRouter = express.Router();
 robotsRouter.get("/", getRobots);
 robotsRouter.get("/:idRobot", getRobotById);
-robotsRouter.get(notFoundError);
+robotsRouter.post("/", addRobot);
 
 module.exports = { robotsRouter };
