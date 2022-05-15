@@ -15,4 +15,13 @@ const mockRobots = [
   },
 ];
 
-module.exports = { mockRobots };
+const mockedNewRobot = {
+  name: "New created robot",
+  speed: 10,
+  resistance: 10,
+  url: "https://www.cinemascomics.com/wp-content/uploads/2017/07/nueva-trilogia-terminator.jpg",
+  creation: "10/05/2020",
+  description: "Robot created to test.",
+};
+
+module.exports = { mockRobots, mockedNewRobot };
