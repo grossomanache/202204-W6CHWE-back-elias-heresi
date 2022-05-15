@@ -6,10 +6,11 @@
     "test": "jest",
     "start": "node index",
     "prepare": "husky install",
-    "test-coverage": "jest --coverage --watchAll=false"
+    "test-coverage": "jest --coverage --watchAll"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true
   },
   "keywords": [],
   "author": "",
