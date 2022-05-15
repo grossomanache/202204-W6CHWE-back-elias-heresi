@@ -1,5 +1,5 @@
-const mockRobots = require("../../server/mocks/mockRobots");
 const Robot = require("./Robot");
+const { mockRobots } = require("../../server/mocks/mockRobots");
 
 describe("Given the Robot schema", () => {
   describe("When instantiated with the Larry the boy mock robot", () => {
