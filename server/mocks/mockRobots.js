@@ -15,4 +15,4 @@ const mockRobots = [
   },
 ];
 
-module.exports = {mockRobots};
+module.exports = { mockRobots };
