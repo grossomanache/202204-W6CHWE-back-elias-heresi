@@ -1,5 +1,6 @@
+require("dotenv").config();
 const jwt = require("jsonwebtoken");
-const debug = require("debug")("robots:root:server:auth");
+const debug = require("debug")("robots:AUTH");
 
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
@@ -8,6 +9,7 @@ const auth = (req, res, next) => {
       throw new Error();
     }
     const token = authorization.replace("Bearer ", "");
+  
     const { id } = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = id;
     next();
