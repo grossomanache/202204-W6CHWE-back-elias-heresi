@@ -1,6 +1,8 @@
 const chalk = require("chalk");
 const debug = require("debug")("robots:root:server:controllers");
+const jwt = require("jsonwebtoken");
 const Robot = require("../../db/models/Robot");
+const User = require("../../db/models/User");
 
 const getRobots = async (req, res) => {
   const robots = await Robot.find();
@@ -23,4 +25,15 @@ const addRobot = async (req, res) => {
   res.status(201).json(createdMessage);
 };
 
-module.exports = { getRobots, getRobotById, addRobot };
+const getUsers = async (req, res) => {
+  const { username, password } = req.body;
+  const user = await User.findOne({ username, password });
+  if (!user) {
+    res.status(401).json({ msg: "Incorrect user and/or password" });
+    return;
+  }
+  const token = jwt.sign({ id: user.username }, process.env.JWT_SECRET);
+  res.status(200).json({ token });
+};
+
+module.exports = { getRobots, getRobotById, addRobot, getUsers };
